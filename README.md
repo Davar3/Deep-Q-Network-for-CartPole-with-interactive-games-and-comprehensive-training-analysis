@@ -507,7 +507,7 @@ opencv-python>=4.8.0
 **Author:**
 - Davar Adil Yassin
 - MSc AI Student, UKH
-- [Contact/GitHub links]
+
 
 ---
 
