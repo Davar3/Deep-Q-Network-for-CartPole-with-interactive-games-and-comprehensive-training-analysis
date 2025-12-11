@@ -111,7 +111,7 @@ class SuperRelaxedCartPoleGame:
         
         # Load UKH Logo
         try:
-            logo_path = "/Users/davar/Desktop/Robotics Project/new vs code/Branding/Logo-Transparent.png"
+            logo_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), "Branding", "Logo-Transparent.png")
             if os.path.exists(logo_path):
                 self.ukh_logo = pygame.image.load(logo_path)
                 # Scale logo to reasonable size (height = 80px)
@@ -130,8 +130,8 @@ class SuperRelaxedCartPoleGame:
         output_dim = self.env.action_space.n
         self.model = DQN(input_dim, output_dim)
         
-        # Use absolute path to models folder
-        model_path = "/Users/davar/Desktop/Robotics Project/new vs code/models/dqn_cartpole_gymnasium.pth"
+        # Use relative path to models folder
+        model_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), "models", "dqn_cartpole_gymnasium.pth")
         try:
             self.model.load_state_dict(torch.load(model_path, map_location=torch.device('cpu'), weights_only=True))
             self.model.eval()
